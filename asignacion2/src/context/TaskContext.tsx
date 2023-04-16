@@ -1,26 +1,18 @@
 "use client";
-
 import React, { ReactNode, createContext, useContext, useEffect, useState } from "react";
-
 import { v4 as uuid } from "uuid";
-
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface Task {
   id: string;
-
   title: string;
-
   description: string;
 }
 
 interface TaskContextValue {
   tasks: Task[];
-
   createTask: (title: string, description: string) => void;
-
   updateTask: (id: string, updatedTask: Partial<Task>) => void;
-
   deleteTask: (id: string) => void;
 }
 
@@ -53,11 +45,8 @@ export const TasksProvider = ({ children }: props) => {
     <TaskContext.Provider
       value={{
         tasks,
-
         createTask,
-
         updateTask,
-
         deleteTask,
       }}
     >

@@ -1,13 +1,8 @@
 "use client";
-
 import React, { useEffect } from "react";
-
 import { useTasks } from "../../context/TaskContext";
-
 import { useRouter } from "next/navigation";
-
 import { useForm } from "react-hook-form";
-
 import { toast } from "react-hot-toast";
 
 interface TaskFormPageProps {
@@ -18,31 +13,24 @@ interface TaskFormPageProps {
 
 interface TaskFormValues {
   title: string;
-
   description: string;
 }
 
 interface Task {
   id: string;
-
   title: string;
-
   description: string;
 }
 
 const TaskFormPage: React.FC<TaskFormPageProps> = ({ params }) => {
   const {
     register,
-
     handleSubmit,
-
     formState: { errors },
-
     setValue,
   } = useForm<TaskFormValues>();
 
   const { createTask, updateTask, tasks } = useTasks();
-
   const router = useRouter();
 
   const onSubmit = handleSubmit((data) => {
@@ -58,8 +46,6 @@ const TaskFormPage: React.FC<TaskFormPageProps> = ({ params }) => {
 
     router.push("/");
   });
-  y6;
-
   useEffect(() => {
     if (params.id) {
       const taskFound = tasks.find((task: Task) => task.id === params.id);
